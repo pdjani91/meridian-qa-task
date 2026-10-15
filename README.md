@@ -21,3 +21,11 @@ If you wish to run the environment on your local machine, ensure Docker is insta
 1. Navigate into the main codebase folder:
    ```bash
    cd meridian-repo
+
+2. Start the services in detached mode:
+   ```bash
+   docker compose up -d
+
+3. Verify the API is running by checking the health endpoint:
+   ```bash
+   curl http://localhost:4000/health
