@@ -1,0 +1,15 @@
+name: QA Pipeline
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Start Docker Environment
+        run: |
+          cd meridian-repo
+          docker compose up -d
+      - name: Wait for services
+        run: sleep 10
+      - name: Check API Health
+        run: curl -s http://localhost:4000/health
